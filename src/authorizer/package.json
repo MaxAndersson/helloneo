@@ -1,13 +1,11 @@
 {
   "name": "HelloNeo/authorizer",
   "version": "1.0.0",
-  "description": "Hello World with Neo4j and JWT/Lambda authorizers",
+  "description": "Hello World with Neo4j and JWT/Lambda autorizer",
   "main": "app.js",
   "author": "Max Andersson",
   "license": "MIT",
   "dependencies": {
-    "aws-sdk": "^2.772.0",
-    "axios": "^0.18.0",
     "jsonwebtoken": "^8.5.1"
   },
   "scripts": {
@@ -15,6 +13,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "aws-sdk": "^2.772.0"
   }
 }
