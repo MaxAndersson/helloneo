@@ -3,20 +3,25 @@
 const app = require('../../app.js');
 const chai = require('chai');
 const expect = chai.expect;
-var event, context;
+const assert = chai.assert
+const AWS = require('aws-sdk')
 
-describe('Tests index', function () {
+const lambda = new AWS.Lambda({region: 'eu-central-122'})
+
+
+describe('Tests handler', function () {
     it('verifies successful response', async () => {
-        const result = await app.lambdaHandler(event, context)
-
-        expect(result).to.be.an('object');
-        expect(result.statusCode).to.equal(200);
-        expect(result.body).to.be.an('string');
-
-        let response = JSON.parse(result.body);
-
-        expect(response).to.be.an('object');
-        expect(response.message).to.be.equal("hello world");
-        // expect(response.location).to.be.an("string");
+    return lambda.invoke({
+            FunctionName: 'neo4jserverless-dev-query',
+            Payload: "",
+        }, function(err, data) {
+            if (err)  assert.fail('expected', 'actual', err);
+            else {
+                let payload = JSON.parse(data.Payload)
+                let body = JSON.parse(payload.body)
+                expect(body.num).to.be.an('number')
+                expect(body.num).to.be.equal(171)
+            }        // successful response
+          });
     });
 });
