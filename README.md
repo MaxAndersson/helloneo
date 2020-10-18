@@ -11,7 +11,7 @@
 
 
 ## Getting Started
-A quick introduction the benefits and drawbacks of serverless technologies. [serverless.pdf]('../blob/master/Serverless.pdf')
+A quick introduction the benefits and drawbacks of serverless technologies. [serverless.pdf](../blob/master/Serverless.pdf)
 ### Prerequisites
 - Have aws-cli installed & configured [Instruction](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html)
 - Have serverless installed and configures, [Instruction](https://www.serverless.com/framework/docs/getting-started/)
