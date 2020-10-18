@@ -22,6 +22,6 @@ A quick introduction the benefits and drawbacks of serverless technologies. [Ser
 <pre>$ serverless deploy</pre>
 
 # Solution
-![image](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png) - from aws [docs](https://docs.aws.amazon.com/apigateway/latest/devloperguide)
+![image](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png) 
+- from aws [docs](https://docs.aws.amazon.com/apigateway/latest/devloperguide)
 
-The requirements dictates the use of HMAC + SHA256 commonly refered to as HS256 which is an symmetric type of encryption instead of the commonly used RS256 which is assymmetric. 
