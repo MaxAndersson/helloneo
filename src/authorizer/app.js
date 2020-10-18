@@ -1,7 +1,4 @@
 var jwt = require('jsonwebtoken');
-// AWS.config.update({region: 'eu-central-1'});
-// let ssm = new AWS.SSM({});
-// let jwtSecret;
 
 /**
  *
