@@ -25,3 +25,20 @@ A quick introduction the benefits and drawbacks of serverless technologies. [Ser
 ![image](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png) 
 - from aws [docs](https://docs.aws.amazon.com/apigateway/latest/devloperguide)
 
+The solution is made to be as minimal as possible to comply with the best pactices for serverless functions as good as possible.  Less dependencies means shorter coldstart, smaller attack surface and simplified structure. Running though the solution I will talk about alternatives, descitions and considerations with running this type of solution.
+
+## Authorizer/Security
+First out is the JWT/Authorizer module, that only implements a way to sign a unique token to give access to the query function deployed in a sepereate package. The simplest way of implementing JWT is to sign a payload with a HMAC + SHA256 algorithm also known as HS256, which uses semmetric encryption to esstablish the source of the payload, while gives us a good way to make sure that we can trust the claims make with our secret-key. Although the drawback is when we emplore distributed multi-tenancy and we might not know our trusted sources and claims at beforehand and might need to be able to verify signatures though authentication flows such as OAuth or other federated solutions via an IDP. Then we can use RS256 instead that uses public/private-key assymmetirc encryption to veryfy the payload. 
+
+In this solution we a simple key-value pair (database, movies) signed with HMAC, will be enough. But if we wanted to extrend this we could provision a solution such as aws Cognito, Google Identity, Okta, Auth0 or Keycloak to manage our users, tentants and claims etc. 
+
+The lambda solution in the aws could uses mainly works with two premissions such as which IAM user that can invoke the function and what it is allowed to execute itself.  In a security conscious evnironment we would follow the principal of least privilage and develop roles, policies and groups that minimized the attack surface and only gives the execution environment the premissions it need to get its job done.
+
+Another consideration while implementing this type of function is the tradeoffs we need to consider when it comes to handling sensitive configuration parameters such as passwords and secrets etc. 
+
+For the purposes of this solution we have choosen to expose the variables with the enviromental variables, that can easierly be accessed by and proccess in the execution evironment. Using unencrypted variables like this is not adviced in high seurity contexts, but for our purposes it's fine. The risk being that debugging frameworks or a developer might accedently flush the environmental variables into the logs or as part of a stack trace.
+The better alternative for security is to gather and decrypt the variables in runtime, but that instead gives us an extended bootup time and lambda functions coldstart periods will be longer. 
+
+
+
+
