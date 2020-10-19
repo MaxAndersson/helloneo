@@ -1,4 +1,9 @@
 # Neo4J AWS Serverless Cypther Query with Lambda/JWT Authorizer
+<center>
+
+![matrix](https://routerjockey.com/wp-content/uploads/2017/02/Matrix-code-gif.gif)
+
+</center>
 
 ## Functional requirements: 
  - [x] Use neo4j-driver to execute given query
