@@ -77,3 +77,16 @@ While there are a few frameworks out there to implement lambda functions, such a
 
 #### Motivation 
 Considering all above factors I've choosen to work with serverless for this solution due to it's portability to multiple cloud providers, and it's less verbose structure then native Cloud Formation. You get alot of the required resources by default, such as api gateways as soon as your specify an functions event, related roles and policies are also made by default along with other resources that you might have to specify explicitly for a solution like this. Another factor is maturity. Serverless has been around for a long while and has a mature framework to work with these type of solutions. Another factor is also familiarity, since serverless is what i've used before it makes sense to implement the solution in a well known domain.
+
+## Possible improvements
+- Secret management
+- Granular Policies
+- Price Optimizeation with load testing for diffrent memory allocations
+- Deouple database interaction from function handler, and implement bussiness logic in seperate modules.
+- Implement controller, models etc.. for seperation of concerns.
+- Use an IDP instead of signed JWT tokens.
+- Integrate a pipeline with CodeDeploy, Jenkins, Github CI or such to manage function deployments.
+- Configure api gateway with user friendly responses
+- Static linting, security scanning, etc. 
+- Define OpenApi spec.
+- Rate limiting, use a logger framework etc..
