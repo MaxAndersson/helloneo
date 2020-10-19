@@ -40,5 +40,22 @@ For the purposes of this solution we have choosen to expose the variables with t
 The better alternative for security is to gather and decrypt the variables in runtime, but that instead gives us an extended bootup time and lambda functions coldstart periods will be longer. 
 
 
+## Best Practices
+* Best Practices Functions
+  - [x] Take advantage of execution context reuse to improve the performance of your function.
+  - [x] Use a keep-alive directive to maintain persistent connections, [Reuse]( https://docs.amazonaws.cn/en_us/sdk-for-javascript/v2/developer-guide/node-reusing-connections.html )
+  - [x] Use environment variables to pass operational parameters to your function.
+  - [x] Control the dependencies in your function's deployment package.
+  - [x] Minimize your deployment package size to its runtime necessities.
+  - [x] Reduce the time it takes Lambda to unpack deployment packages
+  - [x] Minimize the complexity of your dependencies.
+  - [x] Avoid using recursive code
 
+* Best Practices Configuration
+  - [x] Performance testing your Lambda function
+  - [ ] Load test your Lambda function
+  - [ ] Use most-restrictive permissions when setting IAM policies.
+  - [ ] Be familiar with AWS Lambda quotas
+  - [ ] Delete Lambda functions that you are no longer using.
 
+Best practices helps us keep a consistent and secure environment for our function executions, and while this solution subscribes to all of these practices, some are out of scope for this assignment. But to improve upon you would make use all of these best practices are fullfilled. 
