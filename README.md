@@ -26,6 +26,15 @@ A quick introduction the benefits and drawbacks of serverless technologies. [Ser
 ### Deploy 
 <pre>$ serverless deploy</pre>
 
+### Run (optional jq)
+<pre>$ export TOKEN=$( curl https://Path.To.Token.Enpoint.example/dev/token | jq '.access_token')
+$ curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" https://Path.To.Query.Endpoint.example/dev/query
+
+{ num : 171 }
+
+</pre>
+
+
 # Solution
 ![image](https://docs.aws.amazon.com/apigateway/latest/developerguide/images/custom-auth-workflow.png) 
 - from aws [docs](https://docs.aws.amazon.com/apigateway/latest/devloperguide)
